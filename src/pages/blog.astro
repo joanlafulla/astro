@@ -1,11 +1,32 @@
 ---
-import Hello from '../components/Hello.astro';
+import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
+
+const operationSystem ="MacOS";
+const quantity = 9;
+const name = "Astro";
+const student = true;
+
+const titleColor = "red"
+
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Hello />
+	<h1>Mi blog de aprendizaje astro</h1>
+        <ul>
+            <li><a href="/posts/post-1">Primer post</a></li>
+            <li><a href="/posts/post-2">Segundo post</a></li>
+            <li><a href="/posts/post-3">Tercer post</a></li>
+        </ul>
+        <p>Soy estudiante?: {student ? <span>sí lo soy</span> : <span>no lo soy</span>}</p>
+        {quantity >= 10 ? <p>Voy a tardar 10 días o más</p> : <p>Voy a tardar menos de 10 días</p>}
 </Layout>
+
+<style define:vars={{titleColor}}>
+    h1 {
+        color: var(--titleColor);
+    }
+</style>
